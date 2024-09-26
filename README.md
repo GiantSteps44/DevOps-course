@@ -1,3 +1,1 @@
-# DevOps-course
-# DevOps-course
-# DevOps-course
+# DevOps-course techical assignments: by Ari Kukkaro
