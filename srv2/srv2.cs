@@ -93,6 +93,7 @@ class MyProcess
     static void Main()
     {
         MyProcess myProcess = new MyProcess();
+        Console.WriteLine("Server2 running..."); 
         Timer delta = new Timer();
         HttpServer HttpListener = new HttpServer();
         DiskInfo HardDrive = new DiskInfo();
@@ -100,7 +101,7 @@ class MyProcess
         HttpListener listener = new HttpListener();
         listener.Prefixes.Add("http://*:8080/"); // Set the URL and port
         listener.Start();
-        Console.WriteLine("Server running...");   
+          
 
         while(true) {
             HttpListenerContext context = listener.GetContext();
