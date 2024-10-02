@@ -64,9 +64,9 @@ def get_disk_space():
     return disk_space.encode()
 
 def get_container_ip():
-    client = docker.from_env()
-    for image in client.images.list():
-        print(image.id)
+    #client = docker.from_env()
+    #for image in client.images.list():
+    #    print(image.id)
     return 0
     
 def time_since_last_boot():
@@ -79,7 +79,7 @@ def time_since_last_boot():
 if __name__ == "__main__":
     with HTTPServer(('', 9000), app) as server:
         tic = time.perf_counter()
-        print("Server running...")
+        print("Server1 running...")
         server.serve_forever()
     
     

@@ -1,9 +1,8 @@
-FROM amd64/ubuntu:latest
+FROM amd64/alpine:latest
 
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y python3 && apt-get install -y python3-pip \
-&& apt-get install -y python3-venv
+RUN apk update && apk add python3 py3-pip py3-virtualenv procps
 
 COPY . /app/
 
