@@ -10,6 +10,8 @@ spin up or shutdown container OS /proc/acpi
  and this means that containers can make system calls or requests for host OS
  to use sound card, power, memory or HardDrive services. However, system calls
  limit containers privileges to directly access hardware and this creates isolation
- probably. Then some lines in my python and C# seems like system call activities. 
+ probably. Then some lines in my python and C# seems like system call activities.
+
+ Both of which are pretty cool actually :)
 
 
