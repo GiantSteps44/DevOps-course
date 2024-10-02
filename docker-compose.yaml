@@ -1,0 +1,15 @@
+
+services:
+  service1:
+    build: ./srv1/
+    command: python3 srv1.py
+    ports:
+      - "8199:9000"
+
+  service2:
+    build: ./srv2/
+    command: dotnet run
+
+networks:
+  default:
+    name: net 
