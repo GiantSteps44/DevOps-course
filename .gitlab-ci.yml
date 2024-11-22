@@ -50,5 +50,3 @@ deploy-job:      # This job runs in the deploy stage.
     - echo "Deploying application..."
     - echo "Application successfully deployed."
 
-tags:
-  - my-tag
