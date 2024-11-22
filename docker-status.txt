@@ -1,0 +1,18 @@
+"docker container ls"
+CONTAINER ID   IMAGE                  COMMAND                  CREATED         STATUS          PORTS                                                         NAMES
+6dc78f19dcfb   exercise4-service1-2   "python3 srv1.py"        2 minutes ago   Up 15 seconds                                                                 service1-2
+168b5940a87b   exercise4-service1-3   "python3 srv1.py"        2 minutes ago   Up 17 seconds                                                                 service1-3
+0ac4d3218a98   exercise4-service1     "python3 srv1.py"        2 minutes ago   Up 17 seconds                                                                 service1
+2232d6ad9ef2   exercise4-nginx        "/docker-entrypoint.…"   2 hours ago     Up 15 seconds   80/tcp, 8081/tcp, 0.0.0.0:8198->8198/tcp, :::8198->8198/tcp   nginx
+a0f3ee4d3679   exercise4-service2     "dotnet DevOps-ex1-s…"   24 hours ago    Up 17 seconds                                                                 service2
+
+
+
+"docker network ls"
+NETWORK ID     NAME      DRIVER    SCOPE
+699b3a078796   bridge    bridge    local
+abade6dbe543   host      host      local
+0ae0789518d3   net       bridge    local
+96657060f23b   none      null      local
+
+

@@ -1,0 +1,21 @@
+services:
+  service1:
+    build: ./srv1/
+    container_name: service1
+    command: python3 srv1.py
+
+  service2:
+    build: ./srv2/
+    container_name: service2
+    command: dotnet run
+    
+  nginx:
+    build: ./nginx/
+    container_name: nginx
+    ports:
+      - 8198:8198
+  
+   
+networks:
+  default:
+    name: net 
