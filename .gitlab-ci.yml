@@ -4,7 +4,7 @@ services:
   - docker:dind
 workflow:
   rules:
-    if: '$CI_COMMIT_BRANCH'
+    - if: '$CI_COMMIT_BRANCH'
 
 
 stages:          # List of stages for jobs, and their order of execution
@@ -19,7 +19,7 @@ build-job:       # This job runs in the build stage, which runs first.
     - echo "IMAGE_APP_TAG=$STAGE_IMAGE_APP_TAG" >> .env
     - docker-compose build
   rules:
-    -if: '$CI_COMMIT_BRANCH == "project"'
+    - if: '$CI_COMMIT_BRANCH == "project"'
 
 
 
@@ -31,7 +31,7 @@ test-job:   # This job also runs in the test stage.
     - sleep 10
     - echo "No lint issues found."
   rules:
-    -if: '$CI_COMMIT_BRANCH == "project"'
+    - if: '$CI_COMMIT_BRANCH == "project"'
 
 
 deploy-job:      # This job runs in the deploy stage.
@@ -41,5 +41,5 @@ deploy-job:      # This job runs in the deploy stage.
     - echo "Deploying application..."
     - echo "Application successfully deployed."
   rules:
-    -if: $CI_COMMIT_BRANCH == "main"
+    - if: $CI_COMMIT_BRANCH == "main"
 
