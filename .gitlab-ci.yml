@@ -15,7 +15,7 @@ stages:          # List of stages for jobs, and their order of execution
 build-job:       # This job runs in the build stage, which runs first.
   stage: build
   script:
-    - echo $CI_BUILD_TOKEN | docker --no-tty login -u gitlab-ci-token --password-stdin $CI_REGISTRY_IMAGE
+    - echo $CI_BUILD_TOKEN | docker login -u gitlab-ci-token --password-stdin $CI_REGISTRY_IMAGE
     - echo "IMAGE_APP_TAG=$STAGE_IMAGE_APP_TAG" >> .env
     - docker-compose build
   rules:
