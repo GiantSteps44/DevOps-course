@@ -29,8 +29,7 @@ class app(BaseHTTPRequestHandler):
         self.end_headers()
 
         try:
-            client = docker.DockerClient(base_url='unix://var/run/docker.sock')
-            print(client.images.list())
+            
             self.wfile.write(("### Server 1 Information ####\n").encode())
             self.wfile.write(get_pids())
             self.wfile.write(get_disk_space())

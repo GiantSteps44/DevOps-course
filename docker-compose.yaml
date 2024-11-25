@@ -3,10 +3,7 @@ services:
     build: ./srv1/
     container_name: service1
     command: python3 srv1.py
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
     
-
 
   service2:
     build: ./srv2/
@@ -17,7 +14,13 @@ services:
     build: ./nginx/
     container_name: nginx
     ports:
-      - 8198:8198
+      - name: web
+        target: 8198
+        published: "8198"
+      
+      - name: test
+        target: 8197
+        published: "8197"
   
    
 networks:
