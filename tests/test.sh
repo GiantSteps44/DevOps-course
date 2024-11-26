@@ -18,3 +18,4 @@ hurl --variable host="$1" --test tests/*.hurl
 
 echo "Stopping container"
 docker stop testing
+docker rm testing service1 service2
