@@ -3,13 +3,16 @@ services:
     build: ./srv1/
     container_name: service1
     command: python3 srv1.py
+    networks:
+      - my_net
     
-
   service2:
     build: ./srv2/
     container_name: service2
     command: dotnet run
-    
+    networks:
+      - my_net
+
   nginx:
     build: ./nginx/
     container_name: nginx
@@ -21,8 +24,11 @@ services:
       - name: test
         target: 8197
         published: "8197"
+    networks:
+      - my_net
+
   
    
 networks:
-  default:
-    name: net 
+  my_net:
+    driver: bridge
