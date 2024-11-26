@@ -11,7 +11,7 @@ echo "Starting container"
 docker run --name testing --rm --detach --publish 8200:8200 ghcr.io/jcamiel/hurl-express-tutorial:latest
 
 echo "Waiting server to be ready"
-wait_for_url "$1" 10
+wait_for_url "$1" 60
 
 echo "Running Hurl tests"
 hurl --variable host="$1" --test tests/*.hurl
