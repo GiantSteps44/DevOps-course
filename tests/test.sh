@@ -7,6 +7,7 @@ wait_for_url () {
     return 0
 }
 
+docker stop testing service1 service2
 echo "Starting container"
 docker run --name testing --rm --detach --publish 8200:8200 ghcr.io/jcamiel/hurl-express-tutorial:latest
 
@@ -18,4 +19,3 @@ hurl --variable host="$1" --test tests/*.hurl
 
 echo "Stopping container"
 docker stop testing
-docker rm testing service1 service2
