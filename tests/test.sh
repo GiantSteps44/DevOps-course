@@ -8,7 +8,7 @@ wait_for_url () {
 }
 
 echo "Starting container"
-docker run --name testing --rm --detach --publish 8197:8197 ghcr.io/jcamiel/hurl-express-tutorial:latest
+docker run --name testing --rm --detach --publish 8200:8200 ghcr.io/jcamiel/hurl-express-tutorial:latest
 
 echo "Waiting server to be ready"
 wait_for_url "$1" 10

@@ -32,7 +32,7 @@ test-job:   # This job also runs in the test stage.
   script:
     - docker-compose up -d
     - chmod u+x tests/test.sh
-    - tests/test.sh http://localhost:8197
+    - tests/test.sh http://localhost:8200
     - docker-compose down
   rules:
     - if: '$CI_COMMIT_BRANCH == "project"'
