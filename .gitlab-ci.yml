@@ -30,7 +30,7 @@ build-job:       # This job runs in the build stage, which runs first.
 test-job:   # This job also runs in the test stage.
   stage: test    # It can run at the same time as unit-test-job (in parallel).
   script:
-    - docker-compose up
+    - docker-compose up -d
     - chmod u+x tests/test.sh
     - tests/test.sh http://localhost:8197
     - docker-compose down
