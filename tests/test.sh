@@ -9,7 +9,7 @@ wait_for_url () {
 
 
 echo "Starting container"
-docker run --name testing --rm --detach --publish 8200:8200 ghcr.io/jcamiel/hurl-express-tutorial:latest
+docker run --name testing --rm --detach --publish 8200:8200 ghcr.io/orange-opensource/hurl:latest
 
 docker ps -a
 
