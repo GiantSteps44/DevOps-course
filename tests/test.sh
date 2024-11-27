@@ -8,6 +8,7 @@ wait_for_url () {
 }
 
 
+docker rm testing
 echo "Starting container"
 docker run --name testing --rm --detach --publish 8200:8200 ghcr.io/orange-opensource/hurl:latest
 
