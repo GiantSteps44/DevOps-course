@@ -1,8 +1,8 @@
 # Use the official .NET Core runtime as the base image
-FROM mcr.microsoft.com/dotnet/runtime:8.0-alpine AS base
+FROM mcr.microsoft.com/dotnet/runtime:8.0 AS base
 WORKDIR /app
 # Use the official .NET Core SDK as the build image
-FROM mcr.microsoft.com/dotnet/sdk:8.0-alpine AS build
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY ["DevOps-ex1-srv2.csproj", "./"]
 RUN dotnet restore "./DevOps-ex1-srv2.csproj"
