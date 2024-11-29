@@ -1,4 +1,4 @@
-# Use the official .NET Core runtime as the base image
+# Use the official .NET Core runtime as the base image for developing C# app
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build-env
 WORKDIR /App
 
