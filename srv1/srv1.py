@@ -81,7 +81,7 @@ def time_since_last_boot():
 
 
 if __name__ == "__main__":
-    with HTTPServer(('', 9000), app) as server:
+    with HTTPServer(('', 9001), app) as server:
         tic = time.perf_counter()
         print("Server1 running...")
         server.serve_forever()
