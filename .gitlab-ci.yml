@@ -20,11 +20,10 @@ build-job:       # This job runs in the build stage, which runs first.
     - docker --version
     - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin "$CI_REGISTRY"
     - echo "IMAGE_APP_TAG=$STAGE_IMAGE_APP_TAG" >> .env
+    - service docker start
     - docker-compose build
   rules:
     - if: '$CI_COMMIT_BRANCH == "project"'
-
-
 
 
 test-job:   # This job also runs in the test stage.
