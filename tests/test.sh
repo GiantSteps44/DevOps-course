@@ -17,7 +17,7 @@ echo "Waiting server to be ready"
 wait_for_url "$1" 60
 
 echo "Running Hurl tests"
-hurl --variable host="$1" --test tests/*.hurl
+hurl --variable host="$1" -v --test tests/*.hurl
 
 echo "Stopping container"
 docker stop testing
