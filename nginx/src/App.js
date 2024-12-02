@@ -7,8 +7,9 @@ const App = () => {
   const [payload, setPayload] = useState();
   const [containerData, setContainerData] = useState();
   
-    // socket: '/var/run/docker.sock';
-  
+
+  // Handles Request button pressing and forwards request message
+  // through nginx to the service1  
   const handleRequest = () => {
     fetch('http://localhost:8198/api')
         .then((res) => res.text())
@@ -17,6 +18,8 @@ const App = () => {
         
   };
 
+  // Formats incoming long data string from service1 and service2
+  // to multiple lines
   const formatString = (text) => {
     return text.split('\n').map((line, index) => (
       <span key={index}>
@@ -26,6 +29,7 @@ const App = () => {
     ));
   };
 
+  // Forwards STOP button signal to through nginx to the services (not working)
   const handleTermination = () => {
     fetch('http://localhost:8198/stop')
         .then((res) => res.text())
@@ -34,7 +38,8 @@ const App = () => {
     
     
 };
-
+  // Since process id list is reversed compared with "df"-command
+  // this function puts data to the same order.
   const getIds = (data) => {
     const ids = data
     .filter(item => item.id !== undefined)
