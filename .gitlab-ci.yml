@@ -32,7 +32,7 @@ test-job:   # This job also runs in the test stage.
     - docker run --name testing --rm --detach --publish 8200:8200 ghcr.io/orange-opensource/hurl:latest
     - chmod u+x tests/test.sh
     - tests/test.sh http://localhost:8197
-    - docker-compose down
+    - docker-compose down --remove-orphans
   rules:
     - if: '$CI_COMMIT_BRANCH == "project"'
 

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DevOps-ex1-srv2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f63693dfcb6430077fb9d6afef26882ed8a9771c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+60075e852409ea14b6452683d22f5a409fb8c750")]
 [assembly: System.Reflection.AssemblyProductAttribute("DevOps-ex1-srv2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DevOps-ex1-srv2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

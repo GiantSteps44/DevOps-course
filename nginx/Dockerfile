@@ -15,7 +15,7 @@ COPY . .
 RUN npm run build
 
 # Stage 2: Serve the app with NGINX
-FROM nginx:stable-alpine
+FROM nginx:latest
 
 # Copy the build files to NGINX's default directory
 COPY --from=build /app/build /usr/share/nginx/html
