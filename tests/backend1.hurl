@@ -1,4 +1,4 @@
-# Test if beckend service1 works and responses JSON
+# Test if backend service1 works and responses text/plain
 
 GET http://localhost:8197/back1
 HTTP 200

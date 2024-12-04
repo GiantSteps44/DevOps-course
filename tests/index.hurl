@@ -1,4 +1,4 @@
-# Test if index page with buttons works
+# Test if index page with buttons emerges
 
 GET http://localhost:8197/
 HTTP 200
