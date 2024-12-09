@@ -2,9 +2,21 @@
 // define possible states
 var allowedStates = ['INIT','RUNNING','SHUTDOWN','PAUSED']
 
-  function setInitialState(){
+
+  function setInitState(){
     ngx.shared.my_zone.set('currentState', 'INIT');
+    
 }
+  function setRunningState (r){
+    if (ngx.shared.my_zone.get('currentState') == undefined) {
+        setInitState();
+    }
+    let curr = ngx.shared.my_zone.get('currentState');
+    ngx.shared.my_zone.set('previousState', curr);
+    ngx.shared.my_zone.set('currentState', 'RUNNING');
+    stateTransition();
+    r.return(200);
+  }
   function stateTransition(){
     const now = new Date();
     const isoString = now.toISOString();
@@ -26,8 +38,7 @@ var allowedStates = ['INIT','RUNNING','SHUTDOWN','PAUSED']
     
     // If initial state is not set, then set it
     if (ngx.shared.my_zone.get('currentState') == undefined) {
-        setInitialState();
-        
+        setInitState();
     }
     var state = ngx.shared.my_zone.get('currentState');
 
@@ -74,12 +85,10 @@ var allowedStates = ['INIT','RUNNING','SHUTDOWN','PAUSED']
             r.return(200,  "No state transitions occurred." + "\n");
         }
         
-        
-
     } else {
         // Handle unsupported methods
         r.return(405, "Method Not Allowed\n");
     }
   }
 
-export default { handleState, getRunLog, setInitialState }
+export default { handleState, getRunLog, setInitState, setRunningState }
