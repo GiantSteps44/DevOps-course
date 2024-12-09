@@ -5,6 +5,18 @@ services:
     command: python3 srv1.py
     networks:
       - my_net
+  service1-2:
+    build: ./srv1/
+    container_name: service1-2
+    command: python3 srv1.py
+    networks:
+      - my_net
+  service1-3:
+    build: ./srv1/
+    container_name: service1-3
+    command: python3 srv1.py
+    networks:
+      - my_net
     
   service2:
     build: ./srv2/
