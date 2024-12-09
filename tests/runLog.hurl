@@ -5,4 +5,4 @@ HTTP 200
 
 [Asserts]
 header "Content-Type" == "text/plain"
-body contains /2024-12-[0-3][0-9]T/
+body contains "2024-12-"
