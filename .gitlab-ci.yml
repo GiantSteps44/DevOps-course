@@ -47,7 +47,7 @@ deploy-job:      # This job runs in the deploy stage.
   environment: production
   script:
     - echo "Deploying application..."
-    - ls -a /.ssh
+    - ls -a 
     - chmod 700 /.ssh
     - chmod 600 /.ssh/known_hosts
     - chmod 400 /.ssh/DevOpsKey.pem
