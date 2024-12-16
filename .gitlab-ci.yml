@@ -51,6 +51,7 @@ deploy-job:      # This job runs in the deploy stage.
     - chmod 707 .ssh
     - chmod 606 .ssh/known_hosts
     - chmod 404 .ssh/DevOpsKey.pem
+    - chmod 404 .ssh/sshd_config
     - ssh-keyscan $CSC_KEY >> .ssh/known_hosts
     - ssh -o StrictHostKeyChecking=no ubuntu@$CSC_KEY "pwd && version && exit"
     - echo "Application successfully deployed to server."
