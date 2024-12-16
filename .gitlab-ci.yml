@@ -53,12 +53,12 @@ deploy-job:      # This job runs in the deploy stage.
     - chmod 400 .ssh/sshd_config
     - ssh-keyscan $CSC_KEY >> .ssh/known_hosts
     - ssh -i .ssh/DevOpsKey.pem ubuntu@$CSC_KEY "
-      pwd \
-      && lsb_release -a \
-      && git clone -b main https://compse140.devops-gitlab.rd.tuni.fi/AriKu/devops.git \
-      && cd devops && rm -r .ssh/ \
-      && docker compose up --build -d \
-      && docker ps -a
+      pwd &&
+      lsb_release -a &&
+      git clone -b main https://compse140.devops-gitlab.rd.tuni.fi/AriKu/devops.git &&
+      cd devops && rm -r .ssh/ &&
+      docker compose up --build -d &&
+      docker ps -a
       "
     - echo "Application successfully deployed to server."
   rules:
