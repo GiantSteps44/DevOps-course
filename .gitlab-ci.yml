@@ -47,8 +47,6 @@ deploy-job:      # This job runs in the deploy stage.
   environment: production
   script:
     - echo "Deploying application..."
-    - pwd
-    - ls -a
     - ssh -i DevOpsKey.pem ubuntu@$128.214.252.48 "git clone -b main https://compse140.devops-gitlab.rd.tuni.fi/AriKu/devops.git \
       cd ~/devops/ \
       docker compose up --build -d"
