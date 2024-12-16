@@ -49,9 +49,7 @@ deploy-job:      # This job runs in the deploy stage.
     - echo "Deploying application..."
     - chmod 600 DevOpsKey.pem
     - ssh-keyscan $CSC_KEY >> ~/.ssh/known_hosts
-    - ssh -i DevOpsKey.pem ubuntu@$CSC_KEY "git clone -b main https://compse140.devops-gitlab.rd.tuni.fi/AriKu/devops.git \
-      cd ~/devops/ \
-      docker compose up --build -d"
+    - ssh -i DevOpsKey.pem ubuntu@$CSC_KEY "pwd && version"
     - echo "Application successfully deployed to server."
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
