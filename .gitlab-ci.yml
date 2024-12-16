@@ -1,0 +1,57 @@
+image: 
+  name: docker/compose:latest
+  entrypoint: ["bin/bash", "-c"]
+
+services:
+  - docker:dind
+workflow:
+  rules:
+    - if: '$CI_COMMIT_BRANCH'
+    - if: $CI_PIPELINE_SOURCE == "merge_reguest_event"
+
+
+stages:          # List of stages for jobs, and their order of execution
+  - build
+  - test
+  - deploy
+
+# This job runs in the build stage, which runs first.
+# First docker login with gitlab variable credentials
+# to enable gitlab registry.
+build-job:       
+  stage: build
+  script:
+    - docker --version
+    - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin "$CI_REGISTRY"
+    - echo "IMAGE_APP_TAG=$STAGE_IMAGE_APP_TAG" >> .env
+    - docker-compose build
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "project"'
+
+# This job also runs in the test stage.
+# Down loads distinct hurl container and executes test script with multiple hurl files
+# Then docker compose down ensures that there are not orhpan containers "ps -a"
+test-job:   
+  stage: test    
+  script:
+    - docker-compose up -d
+    - docker run --name testing --rm --detach --publish 8200:8200 ghcr.io/orange-opensource/hurl:latest
+    - chmod u+x tests/test.sh
+    - tests/test.sh http://localhost:8197
+    - docker-compose down --remove-orphans
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "project"'
+
+
+deploy-job:      # This job runs in the deploy stage.
+  stage: deploy  
+  environment: production
+  script:
+    - echo "Deploying application..."
+    - ssh ubuntu@$CSC_KEY "git clone -b main https://compse140.devops-gitlab.rd.tuni.fi/AriKu/devops.git \
+      cd ~/devops/ \
+      docker compose up --build -d"
+    - echo "Application successfully deployed to server."
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_reguest_event"'
+
