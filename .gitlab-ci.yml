@@ -7,7 +7,6 @@ services:
 workflow:
   rules:
     - if: '$CI_COMMIT_BRANCH'
-    - if: $CI_PIPELINE_SOURCE == "merge_reguest_event"
 
 
 stages:          # List of stages for jobs, and their order of execution
@@ -53,5 +52,5 @@ deploy-job:      # This job runs in the deploy stage.
       docker compose up --build -d"
     - echo "Application successfully deployed to server."
   rules:
-    - if: '$CI_PIPELINE_SOURCE == "merge_reguest_event"'
+    - if: '$CI_COMMIT_BRANCH == "main"'
 
