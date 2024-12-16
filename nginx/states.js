@@ -3,6 +3,8 @@
 var allowedStates = ['INIT','RUNNING','SHUTDOWN','PAUSED']
 
 
+
+
   function setInitState(){
     ngx.shared.my_zone.set('currentState', 'INIT');
     
