@@ -47,10 +47,11 @@ deploy-job:      # This job runs in the deploy stage.
   environment: production
   script:
     - echo "Deploying application..."
-    - ls -a
+    - echo $CSC_KEY
     - chmod 707 .ssh
     - chmod 606 .ssh/known_hosts
     - chmod 404 .ssh/DevOpsKey.pem
+    - ssh-keyscan -R $CSC_KEY
     - ssh-keyscan $CSC_KEY >> .ssh/known_hosts
     - ssh -i .ssh/DevOpsKey.pem ubuntu@$CSC_KEY "pwd && version"
     - echo "Application successfully deployed to server."
