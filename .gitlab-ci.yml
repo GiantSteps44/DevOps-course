@@ -47,7 +47,7 @@ deploy-job:      # This job runs in the deploy stage.
   environment: production
   script:
     - echo "Deploying application..."
-    - ssh ubuntu@$CSC_KEY "git clone -b main https://compse140.devops-gitlab.rd.tuni.fi/AriKu/devops.git \
+    - ssh ubuntu@$128.214.252.48 "git clone -b main https://compse140.devops-gitlab.rd.tuni.fi/AriKu/devops.git \
       cd ~/devops/ \
       docker compose up --build -d"
     - echo "Application successfully deployed to server."
