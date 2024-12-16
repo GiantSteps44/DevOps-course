@@ -53,5 +53,5 @@ deploy-job:      # This job runs in the deploy stage.
       docker compose up --build -d"
     - echo "Application successfully deployed to server."
   rules:
-    - if: $CI_PIPELINE_SOURCE = "merge_reguest_event"
+    - if: '$CI_PIPELINE_SOURCE = "merge_reguest_event"''
 
