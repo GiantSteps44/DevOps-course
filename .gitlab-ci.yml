@@ -48,8 +48,10 @@ deploy-job:      # This job runs in the deploy stage.
   environment: production
   script:
     - echo "Deploying application..."
-    - ssh ubuntu@$CSC_KEY "./deploy.sh"
-    - echo "Application successfully deployed."
+    - ssh ubuntu@$CSC_KEY "git clone -b project https://github.com/GiantSteps44/DevOps-course.git \
+      cd ~/devops/ \
+      docker compose up --build -d"
+    - echo "Application successfully deployed to server."
   rules:
     - if: $CI_PIPELINE_SOURCE = "merge_reguest_event"
 
