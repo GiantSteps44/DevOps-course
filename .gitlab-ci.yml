@@ -48,7 +48,8 @@ deploy-job:      # This job runs in the deploy stage.
   script:
     - echo "Deploying application..."
     - chmod 600 DevOpsKey.pem
-    - ssh -i DevOpsKey.pem ubuntu@$IP_ADD "git clone -b main https://compse140.devops-gitlab.rd.tuni.fi/AriKu/devops.git \
+
+    - ssh -i DevOpsKey.pem ubuntu@$CSC_KEY "git clone -b main https://compse140.devops-gitlab.rd.tuni.fi/AriKu/devops.git \
       cd ~/devops/ \
       docker compose up --build -d"
     - echo "Application successfully deployed to server."
