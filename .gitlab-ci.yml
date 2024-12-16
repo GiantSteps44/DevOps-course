@@ -55,7 +55,7 @@ deploy-job:      # This job runs in the deploy stage.
     - ssh -i .ssh/DevOpsKey.pem ubuntu@$CSC_KEY "
       pwd &&
       lsb_release -a &&
-      git pull https://$DEPLOY_TOKEN@compse140.devops-gitlab.rd.tuni.fi/AriKu/devops.git main &&
+      git pull https://AriKu:gldt-UyxHugwbPbs_y_iqD6A_@compse140.devops-gitlab.rd.tuni.fi/AriKu/devops.git main &&
       cd devops && rm -r .ssh/ &&
       docker compose up --build -d &&
       docker ps -a
