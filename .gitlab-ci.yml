@@ -47,13 +47,13 @@ deploy-job:      # This job runs in the deploy stage.
   environment: production
   script:
     - echo "Deploying application..."
-    - ls -a .ssh
     - chmod 700 .ssh
     - chmod 600 .ssh/known_hosts
     - chmod 400 .ssh/DevOpsKey.pem
     - chmod 400 .ssh/sshd_config
     - ssh-keyscan $CSC_KEY >> .ssh/known_hosts
-    - ssh -i .ssh/DevOpsKey.pem ubuntu@$CSC_KEY "pwd && version && exit"
+    - ssh -i .ssh/DevOpsKey.pem ubuntu@$CSC_KEY "pwd \
+      lsb_release -a && exit"
     - echo "Application successfully deployed to server."
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
