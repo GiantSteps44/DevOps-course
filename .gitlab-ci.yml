@@ -48,12 +48,12 @@ deploy-job:      # This job runs in the deploy stage.
   script:
     - echo "Deploying application..."
     - echo $CSC_KEY
-    - chmod 707 .ssh
-    - chmod 606 .ssh/known_hosts
-    - chmod 404 .ssh/DevOpsKey.pem
-    - chmod 404 .ssh/sshd_config
+    - chmod 700 .ssh
+    - chmod 600 .ssh/known_hosts
+    - chmod 400 .ssh/DevOpsKey.pem
+    - chmod 400 .ssh/sshd_config
     - ssh-keyscan $CSC_KEY >> .ssh/known_hosts
-    - ssh -o StrictHostKeyChecking=no ubuntu@$CSC_KEY "pwd && version && exit"
+    - ssh -i  ubuntu@$CSC_KEY "pwd && version && exit"
     - echo "Application successfully deployed to server."
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
