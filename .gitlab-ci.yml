@@ -52,7 +52,7 @@ deploy-job:      # This job runs in the deploy stage.
     - chmod 400 .ssh/DevOpsKey.pem
     - chmod 400 .ssh/sshd_config
     - ssh-keyscan $CSC_KEY >> .ssh/known_hosts
-    - ssh -i .ssh/DevOpsKey.pem ubuntu@$CSC_KEY "
+    - ssh -i .ssh/DevOpsKey.pem -vvv ubuntu@$CSC_KEY "
       cd devops &&
       git pull https://AriKu:$PASS@compse140.devops-gitlab.rd.tuni.fi/AriKu/devops.git main &&
       ls -a &&
