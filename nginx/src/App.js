@@ -11,7 +11,7 @@ const App = () => {
   // Handles Request button pressing and forwards request message
   // through nginx to the service1  !!!! Local host for running code locally
   const handleRequest = () => {
-    fetch('http://localhost:8198/api')
+    fetch('http://195.148.31.103:8198/api')
         .then((res) => res.text())
         .then(data => setPayload(data))
         .catch(error => console.error("Error fetching data:", error));
