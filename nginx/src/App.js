@@ -9,9 +9,9 @@ const App = () => {
   
 
   // Handles Request button pressing and forwards request message
-  // through nginx to the service1  
+  // through nginx to the service1  !!!IP 195... needs to be localhost:8198 for local testing 
   const handleRequest = () => {
-    fetch('http://localhost:8198/api')
+    fetch('http:/195.148.31.103:8198/api')
         .then((res) => res.text())
         .then(data => setPayload(data))
         .catch(error => console.error("Error fetching data:", error));
