@@ -49,8 +49,7 @@ deploy-job:      # This job runs in the deploy stage.
     - echo "Deploying application..."
     - chmod 700 .ssh
     - chmod 400 .ssh/config
-    - ssh cPouta " # form ssh connection
-      cd devops &&
+    - ssh cPouta " cd devops &&
       git pull https://AriKu:$PASS@compse140.devops-gitlab.rd.tuni.fi/AriKu/devops.git main &&
       ls -a &&
       docker compose up --build -d &&
