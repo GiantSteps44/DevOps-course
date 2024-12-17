@@ -50,7 +50,7 @@ deploy-job:      # This job runs in the deploy stage.
     - chmod 700 .ssh
     - chmod 600 .ssh/authorized_keys
     - chmod 400 .ssh/DevOpsKey.pem
-    - chmod 400 .ssh/config
+    - chmod 400 .ssh/sshd_config
     - ssh-keyscan $CSC_KEY >> .ssh/known_hosts
     - ssh -i .ssh/DevOpsKey.pem -v ubuntu@$CSC_KEY "
       cd devops &&
