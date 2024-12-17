@@ -48,8 +48,12 @@ deploy-job:      # This job runs in the deploy stage.
   script:
     - echo "Deploying application..."
     - chmod 700 .ssh
+    - chmod 600 .ssh/authorized_keys
+    - chmod 400 .ssh/DevOpsKey.pem
     - chmod 400 .ssh/config
-    - ssh cPouta " cd devops &&
+    - ssh-keyscan $CSC_KEY >> .ssh/known_hosts
+    - ssh -i .ssh/DevOpsKey.pem -v ubuntu@$CSC_KEY "
+      cd devops &&
       git pull https://AriKu:$PASS@compse140.devops-gitlab.rd.tuni.fi/AriKu/devops.git main &&
       ls -a &&
       docker compose up --build -d &&
