@@ -54,7 +54,6 @@ deploy-job:      # This job runs in the deploy stage.
     - ssh-keyscan $CSC_KEY >> .ssh/known_hosts
     - ssh -i .ssh/DevOpsKey.pem ubuntu@$CSC_KEY "
       pwd &&
-      git add * &&
       git stash &&
       git pull https://AriKu:$PASS@compse140.devops-gitlab.rd.tuni.fi/AriKu/devops.git main &&
       cd devops && rm -r .ssh/ &&
