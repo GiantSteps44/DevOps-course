@@ -51,9 +51,9 @@ deploy-job:      # This job runs in the deploy stage.
     - chmod 600 .ssh/known_hosts
     - chmod 400 .ssh/DevOpsKey.pem
     - chmod 400 .ssh/sshd_config
-    - ssh -i .ssh/DevOpsKey.pem ubuntu@$CSC_KEY "
+    - ssh -i .ssh/DevOpsKey.pem ubuntu@$195.148.31.103 "
       cd devops &&
-      git pull https://AriKu:gldt-UyxHugwbPbs_y_iqD6A_@compse140.devops-gitlab.rd.tuni.fi/AriKu/devops.git main &&
+      git pull https://AriKu:$PASS@compse140.devops-gitlab.rd.tuni.fi/AriKu/devops.git main &&
       ls -a &&
       docker compose up --build -d &&
       docker ps -a &&
