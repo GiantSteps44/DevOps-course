@@ -48,11 +48,8 @@ deploy-job:      # This job runs in the deploy stage.
   script:
     - echo "Deploying application..."
     - chmod 700 .ssh
-    - chmod 600 .ssh/known_hosts
-    - chmod 400 .ssh/DevOpsKey.pem
-    - chmod 400 .ssh/sshd_config
-    - ssh-keyscan $CSC_KEY >> .ssh/known_hosts
-    - ssh -i .ssh/DevOpsKey.pem -v ubuntu@$CSC_KEY "
+    - chmod 400 .ssh/config
+    - ssh cPouta "
       cd devops &&
       git pull https://AriKu:$PASS@compse140.devops-gitlab.rd.tuni.fi/AriKu/devops.git main &&
       ls -a &&
