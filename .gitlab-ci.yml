@@ -56,7 +56,6 @@ deploy-job:      # This job runs in the deploy stage.
       git fetch https://AriKu:$PASS@compse140.devops-gitlab.rd.tuni.fi/AriKu/devops.git main &&
       ls -a &&
       cd devops &&
-      rm -r .ssh/ &&
       docker compose up --build -d &&
       docker ps -a &&
       exit
