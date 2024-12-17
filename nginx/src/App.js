@@ -9,7 +9,7 @@ const App = () => {
   
 
   // Handles Request button pressing and forwards request message
-  // through nginx to the service1  !!!! Local host for running code locally
+  // through nginx to the service1  
   const handleRequest = () => {
     fetch('http://195.148.31.103:8198/api')
         .then((res) => res.text())
